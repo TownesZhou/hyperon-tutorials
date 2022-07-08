@@ -1,0 +1,11 @@
+version: 2    # This version is mandatory
+
+build:
+  os: "ubuntu-20.04"
+  tools:
+    python: "3.8"
+
+formats:
+  - pdf
+  - epub
+  - html

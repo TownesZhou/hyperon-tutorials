@@ -17,8 +17,7 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 2
 
-   getting_started/index.rst
-   getting_started/installation.rst
-   
+   getting_started/index
    

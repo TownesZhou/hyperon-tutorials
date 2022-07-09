@@ -18,8 +18,7 @@ Contents
 
 .. toctree::
 
-
-   getting_started
+   getting_started/index.rst
    getting_started/installation.rst
    
    

@@ -5,6 +5,11 @@ build:
   tools:
     python: "3.8"
 
+python:
+  install:
+    - requirements: "requirements.txt"
+  system_packages: true
+
 sphinx:
   fail_on_warning: true
 

@@ -20,4 +20,7 @@ Contents
    :maxdepth: 2
 
    getting_started/index
+   how_to_guides/index
+   examples_and_discussions/index
+   reference/index
    

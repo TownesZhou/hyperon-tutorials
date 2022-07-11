@@ -7,8 +7,8 @@ Support for building from source on Windows is currently work in progress.
 ## Prerequisites
 
 Install the latest stable [Rust](https://www.rust-lang.org/tools/install). If Rust is already installed, please ensure you are using the latest stable version via:
-```bash
-rustup update stable
+```shell
+$ rustup update stable
 ```
 
 Install [CMake](https://cmake.org/install/).
@@ -18,28 +18,28 @@ Install [CMake](https://cmake.org/install/).
 
 Clone the [OpenCog Hyperon repository](https://github.com/trueagi-io/hyperon-experimental):
 
-```bash
-git clone https://github.com/trueagi-io/hyperon-experimental.git
+```shell
+$ git clone https://github.com/trueagi-io/hyperon-experimental.git
 ```
 
 Build and test the library:
 
-```bash
-cd ./lib
-cargo build 
-cargo test
+```shell
+$ cd ./lib
+$ cargo build 
+$ cargo test
 ```
 
 To enable logging during tests, execute this instead:
 
-```bash
-RUST_LOG=hyperon=debug cargo test
+```shell
+$ RUST_LOG=hyperon=debug cargo test
 ```
 
 To generate the API docs, execute (under the `lib` directory):
 
-```bash
-cargo doc
+```shell
+$ cargo doc
 ```
 
 Docs can then be found at `./lib/target/doc/hyperon/index.html`.
@@ -49,10 +49,10 @@ Docs can then be found at `./lib/target/doc/hyperon/index.html`.
 
 Next, install the following Rust and Python libraries (must be executed in the root directory of the repository):
 
-```bash
-cargo install --force cbindgen
-python -m pip install conan==1.47
-python -m pip install -e ./python[dev]
+```shell
+$ cargo install --force cbindgen
+$ python -m pip install conan==1.47
+$ python -m pip install -e ./python[dev]
 ```
 
 Configure Conan for CMake:
@@ -62,16 +62,16 @@ Configure Conan for CMake:
 
 On Linux, first find out your `gcc` version via:
 
-```bash
-gcc --version
+```shell
+$ gcc --version
 ```
 
 Then, run the following command to configure Conan:
 
-```bash
-conan profile update settings.compiler=gcc default
-conan profile update settings.compiler.version=<your gcc version> default
-conan profile update settings.compiler.libcxx=libstdc++ default
+```shell
+$ conan profile update settings.compiler=gcc default
+$ conan profile update settings.compiler.version=<your gcc version> default
+$ conan profile update settings.compiler.libcxx=libstdc++ default
 ```
 
 ````
@@ -80,15 +80,15 @@ conan profile update settings.compiler.libcxx=libstdc++ default
 
 On Mac OS, find out your `clang` version via:
 
-```bash
-clang --version
+```shell
+$ clang --version
 ```
 
 Then, run the following command to configure Conan:
-```bash
-conan profile update settings.compiler=clang default
-conan profile update settings.compiler.version=<your clang version> default  
-conan profile update settings.compiler.libcxx=libc++ default 
+```shell
+$ conan profile update settings.compiler=clang default
+$ conan profile update settings.compiler.version=<your clang version> default  
+$ conan profile update settings.compiler.libcxx=libc++ default 
 ```
 
 ````
@@ -96,34 +96,34 @@ conan profile update settings.compiler.libcxx=libc++ default
 
 Then, setup the build via CMake:
 
-```bash
-mkdir -p build
-cd build
-cmake ..
+```shell
+$ mkdir -p build
+$ cd build
+$ cmake ..
 ```
 
 ````{note}
 To run release build, use the following instead of `cmake ..`:
 
-```bash
-cmake -DCMAKE_BUILD_TYPE=Release ..
+```shell
+$ cmake -DCMAKE_BUILD_TYPE=Release ..
 ```
 
 ````
 
 Build the API and run tests:
-```bash
-make
-make check
+```shell
+$ make
+$ make check
 ```
 
 ## Running Python examples from command line
 
 In order to run Python examples, you need to add Python libraries into the `PYTHONPATH` environment variable after compilation:
 
-```bash
-cd build
-export PYTHONPATH=$PYTHONPATH:`pwd`/python:`pwd`/../python
+```shell
+$ cd build
+$ export PYTHONPATH=$PYTHONPATH:`pwd`/python:`pwd`/../python
 ```
 
 ## Language support for IDEs [Optional]
